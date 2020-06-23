@@ -37,16 +37,8 @@ export const createTileLayer = (
   leaflet: LeafletModuleType,
   darkMode: boolean
 ) => {
-  return leaflet.tileLayer(
-    `https://{s}.basemaps.cartocdn.com/${
-      darkMode ? "dark_all" : "light_all"
-    }/{z}/{x}/{y}${leaflet.Browser.retina ? "@2x.png" : ".png"}`,
-    {
-      attribution:
-        '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>, &copy; <a href="https://carto.com/attributions">CARTO</a>',
-      subdomains: "abcd",
-      minZoom: 0,
-      maxZoom: 20,
-    }
-  );
+  return leaflet.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+	  maxZoom: 19,
+	  attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+  });
 };
